@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:graduate_work/constants/constants.dart';
+import 'package:graduate_work/view/page/my_collectons.dart';
+import 'package:graduate_work/view/page/page_home.dart';
+import 'package:graduate_work/view/page/personal_area.dart';
 
 class MainPage extends StatelessWidget{
   MainPage({super.key});
@@ -8,6 +11,7 @@ class MainPage extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: MainPageNavigation(),
     );
   }
@@ -38,39 +42,27 @@ class _MainPageNavigationState extends State<MainPageNavigation>{
         selectedIndex: currentPageIndex,
         destinations: const <Widget>[
           NavigationDestination(
-
             selectedIcon: Icon(Icons.home),
             icon: Icon(Icons.home_outlined),
             label: 'Главная',
           ),
           NavigationDestination(
+            selectedIcon: Icon(Icons.image),
             icon: Icon(Icons.image_outlined),
             label: 'Моя коллекция',
           ),
           NavigationDestination(
-            selectedIcon: Icon(Icons.school),
-            icon: Icon(Icons.school),
+            selectedIcon: Icon(Icons.assignment_ind),
+            icon: Icon(Icons.assignment_ind_outlined),
             label: 'Личный кабинет',
 
           ),
         ],
       ),
       body: <Widget>[
-        Container(
-          color: constants.colorPages,
-          alignment: Alignment.center,
-          child: const Text('Page 1'),
-        ),
-        Container(
-          color: constants.colorPages,
-          alignment: Alignment.center,
-          child: const Text('Page 2'),
-        ),
-        Container(
-          color: constants.colorPages,
-          alignment: Alignment.center,
-          child: const Text('Page 3'),
-        ),
+        PageHome(),
+        MyCollections(),
+        PersonalArea(),
       ][currentPageIndex],
     );
   }
