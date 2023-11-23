@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:graduate_work/constants/constants.dart';
 import 'package:graduate_work/view/widget/widget_style.dart';
+import 'package:graduate_work/model/view_image.dart';
 
 class PageHome extends StatefulWidget {
   PageHome({Key? key}) : super(key: key);
@@ -17,6 +18,26 @@ class _PageHomeState extends State<PageHome> {
 
   // Список для хранения URL-адресов изображений (замените их на фактические URL-адреса ваших изображений)
   List<String> imageUrls = [
+    'url1',
+    'url2',
+    'url3',
+    'url4',
+    'url5',
+    'url6',
+    'url7',
+    'url8',
+    'url9',
+    'url10',
+    'url11',
+    'url4',
+    'url1',
+    'url2',
+    'url3',
+    'url4',
+    'url1',
+    'url2',
+    'url3',
+    'url4',
     'url1',
     'url2',
     'url3',
@@ -80,20 +101,24 @@ class _PageHomeState extends State<PageHome> {
           ),
           SizedBox(height: 10,),
           // GridView для отображения изображений
-          GridView.builder(
-            shrinkWrap: true,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, // 2 изображения в строке
-              mainAxisSpacing: 10,
-              crossAxisSpacing: 10,
+          Expanded(
+            child:           GridView.builder(
+              shrinkWrap: true,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2, // 2 изображения в строке
+                mainAxisSpacing: 10,
+                crossAxisSpacing: 10,
+              ),
+              itemCount: imageUrls.length,
+              itemBuilder: (context, index) {
+                return Image.network(imageUrls[index]);
+              },
             ),
-            itemCount: imageUrls.length,
-            itemBuilder: (context, index) {
-              return Image.network(imageUrls[index]);
-            },
           ),
         ],
       ),
     );
   }
 }
+
+
